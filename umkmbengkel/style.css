@@ -1,0 +1,545 @@
+/* ======================== */
+/* 1. PALET WARNA RUANGGURU */
+/* ======================== */
+:root {
+    --ruangguru-blue-primary: #007bff; /* Biru Dominan */
+    --ruangguru-blue-dark: #0056b3;
+    --ruangguru-yellow-accent: #ffc107; /* Kuning/Orange Aksen */
+    --ruangguru-green-accent: #28a745;
+    --ruangguru-white: #ffffff; /* Latar Belakang */
+    --ruangguru-light-gray: #f8f9fa; /* Latar Belakang Sekunder */
+    --ruangguru-dark-text: #343a40; /* Warna Teks Gelap */
+}
+
+/* ======================== */
+/* 2. RESET DAN DASAR */
+/* ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font yang lebih modern dan clean */
+    background-color: var(--ruangguru-white);
+    color: var(--ruangguru-dark-text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    color: var(--ruangguru-blue-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--ruangguru-blue-dark);
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+/* ======================== */
+/* 3. HEADER & NAVIGASI */
+/* ======================== */
+header {
+    background-color: var(--ruangguru-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow ringan */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 65px; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--ruangguru-dark-text);
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover:not(.btn-nav) {
+    color: var(--ruangguru-blue-primary);
+    border-bottom: 2px solid var(--ruangguru-blue-primary);
+}
+
+/* Tombol Navigasi 'Pesan Antrian' (Mirip "Beli Paket Belajar") */
+.btn-nav {
+    background-color: var(--ruangguru-blue-primary);
+    color: var(--ruangguru-white) !important;
+    padding: 8px 20px;
+    border-radius: 8px; /* Sudut lebih membulat */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-nav:hover {
+    background-color: var(--ruangguru-blue-dark);
+    transform: translateY(-1px);
+}
+
+/* ======================== */
+/* 4. UTILITIES & TYPOGRAPHY */
+/* ======================== */
+
+/* 💡 PERBAIKAN: Menggunakan Kuning Aksen agar tulisan E-SPEED di Hero Section terlihat */
+.text-neon {
+    color: var(--ruangguru-yellow-accent); /* Warna Kuning/Orange Aksen */
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--ruangguru-white); 
+}
+
+/* ... (Sisa kode CSS tidak berubah) ... */
+
+h3 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--ruangguru-blue-dark);
+}
+
+/* Tombol Aksi Utama (Mirip Ruangguru) */
+.btn {
+    display: inline-block;
+    background-color: var(--ruangguru-yellow-accent); 
+    color: var(--ruangguru-dark-text);
+    padding: 12px 35px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4);
+}
+
+.btn:hover {
+    background-color: #e6b200;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 193, 7, 0.6);
+}
+
+
+/* ======================== */
+/* 5. HERO SECTION */
+/* ======================== */
+#hero {
+    /* Menggunakan overlay biru cerah */
+    background-color: var(--ruangguru-blue-primary); 
+    height: 70vh !important; /* Dibuat lebih pendek dari 100vh */
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* Hilangkan background image (atau gunakan background pattern/ilustrasi) */
+    background-image: none !important; 
+    
+    color: var(--ruangguru-white) !important;
+}
+
+#hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+#hero p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+/* ======================================= */
+/* STYLING BAGIAN LAYANAN JASA */
+/* ======================================= */
+.service-image {
+  width: 100%;           /* gambar selalu selebar kartu */
+  height: 180px;         /* tinggi tetap agar seragam */
+  object-fit: cover;     /* isi area tanpa distorsi, crop otomatis */
+  border-radius: 10px;   /* sudut agak melengkung */
+  display: block;        /* hilangkan jarak bawah default */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* efek bayangan halus */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek hover untuk gambar */
+.service-card:hover .service-image {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Responsif: gambar sedikit lebih rendah di layar kecil */
+@media (max-width: 480px) {
+  .service-image {
+    height: 140px;
+    border-radius: 8px;
+  }
+}
+
+
+.services-section {
+    padding: 100px 5%; /* Padding untuk memberi ruang di sekitar konten */
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.services-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+/* Pengaturan Grid untuk Kartu */
+.services-grid {
+    display: grid;
+    /* Membuat kolom responsif: minimal 300px per kolom */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Jarak antar kartu */
+    margin-top: 20px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Efek naik saat dihover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    color: #007bff; /* Warna biru untuk judul jasa */
+    margin-bottom: 5px;
+    font-size: 1.25em;
+}
+
+.service-card .description {
+    color: #555;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    min-height: 40px; /* Memastikan tinggi deskripsi seragam */
+}
+
+.service-card .details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.service-card .price {
+    font-weight: bold;
+    color: #28a745; /* Warna hijau untuk harga */
+    font-size: 1.1em;
+}
+
+.service-card .stock {
+    color: #ffc107; /* Warna kuning untuk stok */
+    font-size: 0.9em;
+}
+
+.service-card .work-time {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.service-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.service-button:hover {
+    background-color: #0056b3;
+}
+
+/* ======================== */
+/* 7. ABOUT SECTION */
+/* ======================== */
+#about {
+    background-color: var(--ruangguru-white);
+    text-align: center;
+}
+
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* ======================== */
+/* 8. GALLERY SECTION */
+/* ======================== */
+.gallery {
+    background-color: var(--ruangguru-light-gray);
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.gallery h2 {
+    color: var(--ruangguru-blue-dark) !important;
+    font-weight: 700;
+}
+
+.gallery-item img {
+    border-radius: 12px !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease;
+}
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+
+/* ======================== */
+/* 9. BOOKING FORM */
+/* ======================== */
+#booking {
+    background-color: var(--ruangguru-white);
+}
+
+.form-container {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: var(--ruangguru-light-gray);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container p {
+    color: #6c757d !important;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: var(--ruangguru-dark-text);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    background-color: var(--ruangguru-white);
+    color: var(--ruangguru-dark-text);
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--ruangguru-blue-primary);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group select option {
+    background-color: var(--ruangguru-white);
+    color: var(--ruangguru-dark-text);
+}
+
+.success-message {
+    background-color: var(--ruangguru-green-accent);
+    color: var(--ruangguru-white);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ======================== */
+/* 10. FOOTER */
+/* ======================== */
+footer {
+    background-color: var(--ruangguru-dark-text);
+    color: var(--ruangguru-white);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ======================== */
+/* 11. MEDIA QUERIES */
+/* ======================== */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+    
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    #hero h2 {
+        font-size: 2em;
+    }
+
+    .service-item {
+        flex: 1 1 100%;
+    }
+}
+/* ======================== */
+/* 12. FOOTER MODERN STYLE  */
+/* ======================== */
+
+footer {
+    background: linear-gradient(135deg, var(--ruangguru-blue-primary), var(--ruangguru-blue-dark));
+    color: var(--ruangguru-white);
+    font-size: 0.95em;
+    padding-top: 50px;
+    border-top: 5px solid var(--ruangguru-yellow-accent);
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+    text-align: left;
+}
+
+.footer-section h4 {
+    color: var(--ruangguru-yellow-accent);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.footer-section p {
+    color: #e9ecef;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-section p:hover {
+    color: var(--ruangguru-yellow-accent);
+    transition: color 0.3s ease;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+    filter: brightness(1) invert(0.2);
+}
+
+/* Garis pemisah bawah */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 15px 0;
+    color: #f8f9fa;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsif footer */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}

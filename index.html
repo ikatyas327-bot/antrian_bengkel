@@ -1,0 +1,137 @@
+<?php include '../koneksi.php'; ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-SPEED Bengkel - Layanan Servis Cepat & Tepat</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../image/umkmlogo.png" alt="Logo E-SPEED Bengkel" class="navbar-logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#services">Layanan Unggulan</a></li>
+                    <li><a href="#jenis-pelayanan">Jenis Pelayanan</a></li> <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#booking" class="btn-nav">Pesan Antrian</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" style="
+    background-image: url('../image/baground\ umkm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+    <div class="container">
+        <h2>Selamat Datang di <span class="text-neon">E-SPEED</span></h2>
+        <p>Spesialis Perbaikan Mesin dan Kelistrikan Motor/Mobil Anda. Cepat, Tepat, dan Bergaransi!</p>
+        <a href="#booking" class="btn">Pesan Antrian Sekarang</a>
+    </div>
+</section>
+
+        <section id="services" class="section-padding">
+            <div class="container">
+                <h3 class="text-neon">Layanan Unggulan Kami</h3>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h4>Servis Berkala & Tune Up</h4>
+                        <p>Pastikan performa kendaraan Anda selalu optimal dengan layanan tune up dan servis rutin kami.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Perbaikan Kelistrikan</h4>
+                        <p>Mengatasi masalah kelistrikan, lampu, aki, dan instalasi sistem modern lainnya.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Ganti Oli & Spare Part</h4>
+                       <p>Kami menyediakan berbagai oli berkualitas dan spare part original dengan harga kompetitif.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+        <section id="about" class="section-padding">
+            <div class="container">
+                <h3 class="text-neon">Mengapa Memilih E-SPEED?</h3>
+                <p>E-SPEED Bengkel didirikan untuk memberikan solusi perbaikan kendaraan yang cepat dan terpercaya. Kami didukung oleh mekanik profesional bersertifikasi dan peralatan diagnosa terkini, memastikan setiap masalah kendaraan Anda ditangani dengan akurat. Kami berkomitmen pada transparansi biaya dan kualitas pengerjaan.</p>
+            </div>
+        </section>
+
+        <section id="booking" class="section-padding">
+            <div class="container">
+                <h3 class="text-neon">Pemesanan Antrian Perbaikan Online</h3>
+                <div class="form-container">
+                    <p style="margin-bottom: 25px; color: #aaa;">Isi formulir di bawah ini untuk memesan slot perbaikan Anda tanpa perlu menunggu lama di bengkel.</p>
+
+                    <form id="antrianForm" action="simpan_antrian.php" method="POST">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="hidden" id="id_menu" name="id_menu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Nama Layanan">Nama Layanan</label>
+                            <input type="text" id="nama_layanan" name="nama_layanan" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="telepon">Nomor Telepon (WA)</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="telepon">Nomor Telepon (WA)</label>
+                            <input type="tel" id="telepon" name="telepon" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis_kendaraan">Jenis Kendaraan</label>
+                            <select id="jenis_kendaraan" name="jenis_kendaraan" required>
+                                <option value="">Pilih Jenis</option>
+                                <option value="motor">Motor</option>
+                                <option value="mobil">Mobil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal">Pilih Tanggal Booking</label>
+                            <input type="date" id="tanggal" name="tanggal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="keluhan">Deskripsi Keluhan/Permintaan Servis</label>
+                            <textarea id="keluhan" name="keluhan" rows="4" required placeholder="Contoh: Ganti oli rutin, setelan karburator, lampu mati"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Kirim Pesanan Antrian</button>
+                    </form>
+
+                    <div id="successMessage" class="success-message">
+                        **TERIMA KASIH!** Pesanan antrian Anda telah diterima. Kami akan segera menghubungi Anda melalui WhatsApp untuk konfirmasi detail antrian dan perkiraan waktu servis Anda.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 E-SPEED Bengkel. All Rights Reserved.</p>
+            <p>Dsn.Dermo Ds.Mentaos Kec.Gudo Kab.Jombang Jawa Timur</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

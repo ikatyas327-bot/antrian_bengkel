@@ -1,0 +1,344 @@
+/* ==================================== */
+/* 1. VARIABEL & RESET DASAR (TEMA NEON) */
+/* ==================================== */
+:root {
+    --primary-dark: #121212;
+    --secondary-dark: #1e1e1e;
+    --text-light: #ffffff;
+    --accent-neon: #00ffc8; /* Hijau Neon Khas */
+    --accent-glow: rgba(0, 255, 200, 0.4);
+    --form-bg: #2a2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Background gambar utama website */
+    background-image: url('../image/bgumkm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent-neon);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4dffdd;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.text-neon {
+    color: var(--accent-neon);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-neon);
+    color: var(--primary-dark);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.btn:hover {
+    background: #4dffdd;
+    box-shadow: 0 0 15px #4dffdd;
+}
+
+/* ==================================== */
+/* 2. HEADER/NAVBAR */
+/* ==================================== */
+header {
+    background: var(--secondary-dark);
+    padding: 15px 0;
+    border-bottom: 2px solid var(--accent-neon);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling LOGO GAMBAR */
+.navbar-logo {
+    height: 60px; /* Tinggi logo, bisa disesuaikan */
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+     color: var(--text-light);
+     padding: 5px 0;
+     border-bottom: 2px solid transparent;
+}
+
+nav ul li a:hover {
+    color: var(--accent-neon);
+    border-bottom: 2px solid var(--accent-neon);
+}
+
+/* ==================================== */
+/* 3. HERO SECTION */
+/* ==================================== */
+#hero {
+    /* Background untuk section hero */
+    background: url('../image/baground umkm.jpg') center/cover no-repeat;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Overlay gelap untuk kontras */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+#hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* ==================================== */
+/* 4. LAYANAN & TENTANG KAMI */
+/* ==================================== */
+.section-padding {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-padding h3 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+#services .service-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#services .service-item {
+    background: var(--secondary-dark);
+    padding: 25px;
+    border-radius: 8px;
+    width: 30%;
+    min-width: 250px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid var(--accent-neon);
+    transition: transform 0.3s;
+}
+
+#services .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px var(--accent-glow);
+}
+
+#about {
+    background: var(--secondary-dark);
+}
+
+#about p {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* ==================================== */
+/* 5. PEMESANAN ANTRIAN */
+/* ==================================== */
+#booking {
+    background: var(--primary-dark);
+    border-top: 1px solid var(--accent-neon);
+}
+
+#booking .form-container {
+    background: var(--secondary-dark);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#booking .form-group {
+    margin-bottom: 20px;
+}
+
+#booking label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--accent-neon);
+    text-shadow: 0 0 5px var(--accent-glow);
+}
+
+#booking input,
+#booking select,
+#booking textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--form-bg);
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#booking textarea {
+    resize: vertical;
+}
+
+#booking input:focus,
+#booking select:focus,
+#booking textarea:focus {
+    border-color: var(--accent-neon);
+    box-shadow: 0 0 5px var(--accent-glow);
+}
+
+#booking button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+#booking .success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(0, 255, 200, 0.1);
+    color: var(--accent-neon);
+    border: 1px solid var(--accent-neon);
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Sembunyikan default */
+}
+
+/* ==================================== */
+/* 6. FOOTER */
+/* ==================================== */
+footer {
+    background: var(--secondary-dark);
+    color: #8f8c8c;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--accent-neon);
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ==================================== */
+/* 7. MEDIA QUERIES (RESPONSIVE) */
+/* ==================================== */
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 2.5em;
+    }
+
+    /* Penyesuaian navbar untuk mobile */
+    header .container {
+        flex-direction: column;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    #services .service-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+/* Navbar hover & scroll style */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  transition: color 0.3s ease;
+}
