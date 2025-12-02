@@ -1,0 +1,75 @@
+<?php
+session_start();
+include '../koneksi.php';
+
+// Pastikan hanya admin yang bisa akses
+if (!isset($_SESSION['admin_id'])) {
+  echo json_encode(['success' => false, 'message' => 'Unauthorized']);
+  exit;
+}
+
+// Hanya terima POST request
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+  exit;
+}
+
+header('Content-Type: application/json');
+
+// Ambil data dari POST
+$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+$price = isset($_POST['price']) ? trim($_POST['price']) : '';
+
+// Validasi input
+if (empty($name)) {
+  echo json_encode(['success' => false, 'message' => 'Nama layanan tidak boleh kosong']);
+  exit;
+}
+
+if (empty($price)) {
+  echo json_encode(['success' => false, 'message' => 'Harga tidak boleh kosong']);
+  exit;
+}
+
+if (!is_numeric($price) || $price < 0) {
+  echo json_encode(['success' => false, 'message' => 'Harga harus berupa angka positif']);
+  exit;
+}
+
+// Cek apakah layanan sudah ada
+$check = $conn->prepare("SELECT id_menu FROM menu WHERE name = ?");
+$check->bind_param("s", $name);
+$check->execute();
+$result = $check->get_result();
+
+if ($result->num_rows > 0) {
+  echo json_encode(['success' => false, 'message' => 'Layanan dengan nama ini sudah ada']);
+  exit;
+}
+
+// Insert data layanan baru
+$stmt = $conn->prepare("INSERT INTO menu (name, price) VALUES (?, ?)");
+$stmt->bind_param("sd", $name, $price);
+
+if ($stmt->execute()) {
+  $new_id = $conn->insert_id;
+  
+  echo json_encode([
+    'success' => true, 
+    'message' => 'Layanan berhasil ditambahkan!',
+    'data' => [
+      'id_menu' => $new_id,
+      'name' => $name,
+      'price' => $price
+    ]
+  ]);
+} else {
+  echo json_encode([
+    'success' => false, 
+    'message' => 'Gagal menambahkan layanan: ' . $conn->error
+  ]);
+}
+
+$stmt->close();
+$conn->close();
+?>
